@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.35026.282
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Flow_Controller", "Flow_Controller\Flow_Controller.dtproj", "{10924EDF-928C-42FF-BDB5-4B4BC7B187EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{10924EDF-928C-42FF-BDB5-4B4BC7B187EB}.Development|Default.ActiveCfg = Development
+		{10924EDF-928C-42FF-BDB5-4B4BC7B187EB}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6AE66032-DDD2-4E24-9B70-67F75A6AA990}
+	EndGlobalSection
+EndGlobal
