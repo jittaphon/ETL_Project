@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.35026.282
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Flow_ETL", "TESTSQL\Flow_ETL.dtproj", "{A92DFF6D-05F8-4F0A-B71B-2143365D6130}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A92DFF6D-05F8-4F0A-B71B-2143365D6130}.Development|Default.ActiveCfg = Development
+		{A92DFF6D-05F8-4F0A-B71B-2143365D6130}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {37422043-EA1A-4136-AB3F-00B08D766417}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,1476 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/4/2024 4:46:28 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-52HQ0QMD"
+  DTS:CreatorName="LAPTOP-52HQ0QMD\hp"
+  DTS:DTSID="{05EE5003-9A14-422C-B43F-16414709ACFB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5467.0"
+  DTS:LocaleID="1054"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{70F80DA8-3AA9-455B-BBC6-32F0CFB3DBC4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[203.154.202.144.AR.bitraining]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{2DE99BC8-4C1D-427C-80CC-6CFE41DD0806}"
+      DTS:ObjectName="203.154.202.144.AR.bitraining">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=203.154.202.144;User ID=bitraining;Initial Catalog=AR;Provider=SQLNCLI11.1;Persist Security Info=True;Application Name=SSIS-Package1-{2DE99BC8-4C1D-427C-80CC-6CFE41DD0806}203.154.202.144.AR.bitraining;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAjPjE3M253Uq7pJV3MIvUdQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABwkPDpjB+o9oysppIfHRXFoKozdavc+ssrBg9NedZjNwAAAAAOgAAAAAIAACAAAACikOyBhZvc+f11PIZoXQMCWN7sLKhfdSHbuzmnYu+DYCAAAADcAB/Yg+dnncp2MFVdVrVcbwmCfbpMfSSGu0E+QVCXgEAAAABin52EqmDsZ3ykpVjJBWme9S3UcIIL05dPL0uHN5IMNjCv6Bu+t3xx5tTODl29o7B9zCGgqA57cIVNiU4DVPX2</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.TrainingSQL]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BAF90BD6-B821-4FD3-A782-925F6AA10980}"
+      DTS:ObjectName="LocalHost.TrainingSQL">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=TrainingSQL;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{BAF90BD6-B821-4FD3-A782-925F6AA10980}LocalHost.TrainingSQL;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{0A997709-B10E-4D3C-B432-1C845DF17543}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{30003DB6-AF48-4244-BD80-1D6A6401D497}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Data Flow Task\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[AR_Tracking]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">874</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LocalHost.TrainingSQL]"
+                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.TrainingSQL]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[customer_name]"
+                          cachedDataType="wstr"
+                          cachedLength="500"
+                          cachedName="customer_name"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_name]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_name]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[id_increment]"
+                          cachedDataType="i8"
+                          cachedName="id_increment"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id_increment]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[id_increment]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[invoice_no]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="invoice_no"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[invoice_no]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[invoice_no]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[invoice_status]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="invoice_status"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[invoice_status]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[invoice_status]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[factoring]"
+                          cachedDataType="i8"
+                          cachedName="factoring"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[factoring]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[factoring]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[so_number]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="so_number"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[so_number]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[so_number]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[start_date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="start_date"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[start_date]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_date]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[end_date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="end_date"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[end_date]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_date]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[so_end_date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="so_end_date"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[so_end_date]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[so_end_date]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[invoice_date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="invoice_date"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[invoice_date]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[invoice_date]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[confirm_date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="confirm_date"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[confirm_date]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[confirm_date]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[rv_receipt_date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="rv_receipt_date"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rv_receipt_date]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[rv_receipt_date]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[incoming_receipt_date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="incoming_receipt_date"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[incoming_receipt_date]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[incoming_receipt_date]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[customer_no]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="customer_no"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_no]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_no]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[customer_type]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="customer_type"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_type]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_type]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[amount_after_vat]"
+                          cachedDataType="numeric"
+                          cachedName="amount_after_vat"
+                          cachedPrecision="28"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[amount_after_vat]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[amount_after_vat]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cn_amount]"
+                          cachedDataType="i8"
+                          cachedName="cn_amount"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cn_amount]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[cn_amount]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sale_name]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="sale_name"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sale_name]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[sale_name]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sale_team]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="sale_team"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sale_team]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[sale_team]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date_bill]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="date_bill"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_bill]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_bill]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[billing_status]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="billing_status"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[billing_status]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[billing_status]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cn_number]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="cn_number"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cn_number]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[cn_number]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[rv_number]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="rv_number"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rv_number]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[rv_number]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[receipt_number]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="receipt_number"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[receipt_number]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[receipt_number]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[aging]"
+                          cachedDataType="i8"
+                          cachedName="aging"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[aging]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[aging]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[billing_status_remark]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="billing_status_remark"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[billing_status_remark]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[billing_status_remark]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[billing_remark]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="billing_remark"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[billing_remark]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[billing_remark]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[billing_type_detail]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="billing_type_detail"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[billing_type_detail]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[billing_type_detail]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[finance_name]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="finance_name"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[finance_name]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[finance_name]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[create_at_bi]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="create_at_bi"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[create_at_bi]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[create_at_bi]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[page]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="page"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[page]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[page]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[size]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="size"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[size]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[size]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[recheck]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="recheck"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[recheck]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[recheck]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[main_status]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="main_status"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[main_status]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[main_status]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[incoming_paid_date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="incoming_paid_date"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[incoming_paid_date]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[incoming_paid_date]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[updateat_etl]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="updateat_etl"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[updateat_etl]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[updateat_etl]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_name]"
+                          dataType="wstr"
+                          length="500"
+                          name="customer_name" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id_increment]"
+                          dataType="i8"
+                          name="id_increment" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[invoice_no]"
+                          dataType="wstr"
+                          length="50"
+                          name="invoice_no" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[invoice_status]"
+                          dataType="wstr"
+                          length="20"
+                          name="invoice_status" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[factoring]"
+                          dataType="i8"
+                          name="factoring" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[so_number]"
+                          dataType="wstr"
+                          length="100"
+                          name="so_number" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[start_date]"
+                          dataType="dbTimeStamp"
+                          name="start_date" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[end_date]"
+                          dataType="dbTimeStamp"
+                          name="end_date" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[so_end_date]"
+                          dataType="dbTimeStamp"
+                          name="so_end_date" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[invoice_date]"
+                          dataType="dbTimeStamp"
+                          name="invoice_date" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[confirm_date]"
+                          dataType="dbTimeStamp"
+                          name="confirm_date" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rv_receipt_date]"
+                          dataType="dbTimeStamp"
+                          name="rv_receipt_date" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[incoming_receipt_date]"
+                          dataType="dbTimeStamp"
+                          name="incoming_receipt_date" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_no]"
+                          dataType="wstr"
+                          length="20"
+                          name="customer_no" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_type]"
+                          dataType="wstr"
+                          length="20"
+                          name="customer_type" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[amount_after_vat]"
+                          dataType="numeric"
+                          name="amount_after_vat"
+                          precision="28"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cn_amount]"
+                          dataType="i8"
+                          name="cn_amount" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sale_name]"
+                          dataType="wstr"
+                          length="255"
+                          name="sale_name" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sale_team]"
+                          dataType="wstr"
+                          length="255"
+                          name="sale_team" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_bill]"
+                          dataType="dbTimeStamp"
+                          name="date_bill" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[billing_status]"
+                          dataType="wstr"
+                          length="50"
+                          name="billing_status" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cn_number]"
+                          dataType="wstr"
+                          length="100"
+                          name="cn_number" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rv_number]"
+                          dataType="wstr"
+                          length="100"
+                          name="rv_number" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[receipt_number]"
+                          dataType="wstr"
+                          length="100"
+                          name="receipt_number" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[aging]"
+                          dataType="i8"
+                          name="aging" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[billing_status_remark]"
+                          dataType="wstr"
+                          length="4000"
+                          name="billing_status_remark" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[billing_remark]"
+                          dataType="wstr"
+                          length="4000"
+                          name="billing_remark" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[billing_type_detail]"
+                          dataType="wstr"
+                          length="255"
+                          name="billing_type_detail" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[finance_name]"
+                          dataType="wstr"
+                          length="255"
+                          name="finance_name" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[create_at_bi]"
+                          dataType="dbTimeStamp"
+                          name="create_at_bi" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[page]"
+                          dataType="wstr"
+                          length="100"
+                          name="page" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[size]"
+                          dataType="wstr"
+                          length="255"
+                          name="size" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[recheck]"
+                          dataType="wstr"
+                          length="255"
+                          name="recheck" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[main_status]"
+                          dataType="wstr"
+                          length="255"
+                          name="main_status" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[incoming_paid_date]"
+                          dataType="dbTimeStamp"
+                          name="incoming_paid_date" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[updateat_etl]"
+                          dataType="dbTimeStamp"
+                          name="updateat_etl" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Data Flow Task\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[API_ARTracking]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">874</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[203.154.202.144.AR.bitraining]"
+                      connectionManagerRefId="Package.ConnectionManagers[203.154.202.144.AR.bitraining]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_name]"
+                          length="500"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_name]"
+                          name="customer_name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[id_increment]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[id_increment]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[id_increment]"
+                          name="id_increment"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[invoice_no]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[invoice_no]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[invoice_no]"
+                          name="invoice_no"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[invoice_status]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[invoice_status]"
+                          length="20"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[invoice_status]"
+                          name="invoice_status"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[factoring]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[factoring]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[factoring]"
+                          name="factoring"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[so_number]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[so_number]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[so_number]"
+                          name="so_number"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_date]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[start_date]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_date]"
+                          name="start_date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_date]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[end_date]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_date]"
+                          name="end_date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[so_end_date]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[so_end_date]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[so_end_date]"
+                          name="so_end_date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[invoice_date]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[invoice_date]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[invoice_date]"
+                          name="invoice_date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[confirm_date]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[confirm_date]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[confirm_date]"
+                          name="confirm_date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[rv_receipt_date]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rv_receipt_date]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[rv_receipt_date]"
+                          name="rv_receipt_date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[incoming_receipt_date]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[incoming_receipt_date]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[incoming_receipt_date]"
+                          name="incoming_receipt_date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_no]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_no]"
+                          length="20"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_no]"
+                          name="customer_no"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_type]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_type]"
+                          length="20"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_type]"
+                          name="customer_type"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[amount_after_vat]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[amount_after_vat]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[amount_after_vat]"
+                          name="amount_after_vat"
+                          precision="28"
+                          scale="2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[cn_amount]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cn_amount]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[cn_amount]"
+                          name="cn_amount"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[sale_name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sale_name]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[sale_name]"
+                          name="sale_name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[sale_team]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sale_team]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[sale_team]"
+                          name="sale_team"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_bill]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date_bill]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_bill]"
+                          name="date_bill"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[billing_status]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[billing_status]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[billing_status]"
+                          name="billing_status"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[cn_number]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cn_number]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[cn_number]"
+                          name="cn_number"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[rv_number]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rv_number]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[rv_number]"
+                          name="rv_number"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[receipt_number]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[receipt_number]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[receipt_number]"
+                          name="receipt_number"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[aging]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[aging]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[aging]"
+                          name="aging"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[billing_status_remark]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[billing_status_remark]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[billing_status_remark]"
+                          name="billing_status_remark"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[billing_remark]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[billing_remark]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[billing_remark]"
+                          name="billing_remark"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[billing_type_detail]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[billing_type_detail]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[billing_type_detail]"
+                          name="billing_type_detail"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[finance_name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[finance_name]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[finance_name]"
+                          name="finance_name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[create_at_bi]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[create_at_bi]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[create_at_bi]"
+                          name="create_at_bi"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[page]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[page]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[page]"
+                          name="page"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[size]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[size]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[size]"
+                          name="size"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[recheck]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[recheck]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[recheck]"
+                          name="recheck"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[main_status]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[main_status]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[main_status]"
+                          name="main_status"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[incoming_paid_date]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[incoming_paid_date]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[incoming_paid_date]"
+                          name="incoming_paid_date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[updateat_etl]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[updateat_etl]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[updateat_etl]"
+                          name="updateat_etl"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_name]"
+                          dataType="wstr"
+                          length="255"
+                          name="customer_name" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[id_increment]"
+                          dataType="i8"
+                          name="id_increment" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[invoice_no]"
+                          dataType="wstr"
+                          length="50"
+                          name="invoice_no" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[invoice_status]"
+                          dataType="wstr"
+                          length="20"
+                          name="invoice_status" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[factoring]"
+                          dataType="i8"
+                          name="factoring" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[so_number]"
+                          dataType="wstr"
+                          length="100"
+                          name="so_number" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[start_date]"
+                          dataType="dbTimeStamp"
+                          name="start_date" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[end_date]"
+                          dataType="dbTimeStamp"
+                          name="end_date" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[so_end_date]"
+                          dataType="dbTimeStamp"
+                          name="so_end_date" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[invoice_date]"
+                          dataType="dbTimeStamp"
+                          name="invoice_date" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[confirm_date]"
+                          dataType="dbTimeStamp"
+                          name="confirm_date" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rv_receipt_date]"
+                          dataType="dbTimeStamp"
+                          name="rv_receipt_date" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[incoming_receipt_date]"
+                          dataType="dbTimeStamp"
+                          name="incoming_receipt_date" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_no]"
+                          dataType="wstr"
+                          length="20"
+                          name="customer_no" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_type]"
+                          dataType="wstr"
+                          length="20"
+                          name="customer_type" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[amount_after_vat]"
+                          dataType="numeric"
+                          name="amount_after_vat"
+                          precision="28"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cn_amount]"
+                          dataType="i8"
+                          name="cn_amount" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sale_name]"
+                          dataType="wstr"
+                          length="255"
+                          name="sale_name" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sale_team]"
+                          dataType="wstr"
+                          length="255"
+                          name="sale_team" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date_bill]"
+                          dataType="dbTimeStamp"
+                          name="date_bill" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[billing_status]"
+                          dataType="wstr"
+                          length="50"
+                          name="billing_status" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cn_number]"
+                          dataType="wstr"
+                          length="100"
+                          name="cn_number" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rv_number]"
+                          dataType="wstr"
+                          length="100"
+                          name="rv_number" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[receipt_number]"
+                          dataType="wstr"
+                          length="100"
+                          name="receipt_number" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[aging]"
+                          dataType="i8"
+                          name="aging" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[billing_status_remark]"
+                          dataType="wstr"
+                          length="4000"
+                          name="billing_status_remark" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[billing_remark]"
+                          dataType="wstr"
+                          length="4000"
+                          name="billing_remark" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[billing_type_detail]"
+                          dataType="wstr"
+                          length="255"
+                          name="billing_type_detail" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[finance_name]"
+                          dataType="wstr"
+                          length="255"
+                          name="finance_name" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[create_at_bi]"
+                          dataType="dbTimeStamp"
+                          name="create_at_bi" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[page]"
+                          dataType="wstr"
+                          length="100"
+                          name="page" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[size]"
+                          dataType="wstr"
+                          length="255"
+                          name="size" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[recheck]"
+                          dataType="wstr"
+                          length="255"
+                          name="recheck" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[main_status]"
+                          dataType="wstr"
+                          length="255"
+                          name="main_status" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[incoming_paid_date]"
+                          dataType="dbTimeStamp"
+                          name="incoming_paid_date" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[updateat_etl]"
+                          dataType="dbTimeStamp"
+                          name="updateat_etl" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[id_increment]"
+                          dataType="i8"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[id_increment]"
+                          name="id_increment" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[invoice_no]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[invoice_no]"
+                          name="invoice_no" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[invoice_status]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[invoice_status]"
+                          name="invoice_status" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[factoring]"
+                          dataType="i8"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[factoring]"
+                          name="factoring" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[so_number]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[so_number]"
+                          name="so_number" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[start_date]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[start_date]"
+                          name="start_date" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[end_date]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[end_date]"
+                          name="end_date" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[so_end_date]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[so_end_date]"
+                          name="so_end_date" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[invoice_date]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[invoice_date]"
+                          name="invoice_date" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[confirm_date]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[confirm_date]"
+                          name="confirm_date" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rv_receipt_date]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rv_receipt_date]"
+                          name="rv_receipt_date" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[incoming_receipt_date]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[incoming_receipt_date]"
+                          name="incoming_receipt_date" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[customer_no]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[customer_no]"
+                          name="customer_no" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[customer_name]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[customer_name]"
+                          name="customer_name" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[customer_type]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[customer_type]"
+                          name="customer_type" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[amount_after_vat]"
+                          dataType="numeric"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[amount_after_vat]"
+                          name="amount_after_vat"
+                          precision="28"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cn_amount]"
+                          dataType="i8"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cn_amount]"
+                          name="cn_amount" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sale_name]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sale_name]"
+                          name="sale_name" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sale_team]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sale_team]"
+                          name="sale_team" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date_bill]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date_bill]"
+                          name="date_bill" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[billing_status]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[billing_status]"
+                          name="billing_status" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cn_number]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cn_number]"
+                          name="cn_number" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rv_number]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rv_number]"
+                          name="rv_number" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[receipt_number]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[receipt_number]"
+                          name="receipt_number" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[aging]"
+                          dataType="i8"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[aging]"
+                          name="aging" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[billing_status_remark]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[billing_status_remark]"
+                          name="billing_status_remark" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[billing_remark]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[billing_remark]"
+                          name="billing_remark" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[billing_type_detail]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[billing_type_detail]"
+                          name="billing_type_detail" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[finance_name]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[finance_name]"
+                          name="finance_name" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[create_at_bi]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[create_at_bi]"
+                          name="create_at_bi" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[page]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[page]"
+                          name="page" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[size]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[size]"
+                          name="size" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[recheck]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[recheck]"
+                          name="recheck" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[main_status]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[main_status]"
+                          name="main_status" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[incoming_paid_date]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[incoming_paid_date]"
+                          name="incoming_paid_date" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[updateat_etl]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[updateat_etl]"
+                          name="updateat_etl" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Data Flow Task.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Sequence Container\Data Flow Task"
+          TopLeft="33.7999894698467,77.3333347935148" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="204.8,264.8"
+          Size="204.8,308"
+          Id="Package\Sequence Container"
+          TopLeft="230.833324160841,63.266667169465" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Sequence Container\Data Flow Task\OLE DB Source"
+          TopLeft="67.4999997019764,60" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Sequence Container\Data Flow Task\OLE DB Destination"
+          TopLeft="60,243.733334793515" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="144.549999850988,101.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,142.133334793515"
+              Start="0,0"
+              End="0,134.633334793515">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,134.633334793515" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
